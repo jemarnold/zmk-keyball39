@@ -1,12 +1,3 @@
-#define BASE     0
-#define NAV-SYM  1
-#define FN-NUM   2
-#define NAV-NAV  3
-#define SYS      4
-#define MOUSE    5
-#define SCROLL   6
-#define SNIPE    7
-
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
@@ -334,8 +325,8 @@
         compatible = "zmk,conditional-layers";
 
         system {
-            if-layers = <1 2>;
-            then-layer = <4>;
+            if-layers = <NAV_SYM FN_NUM>;
+            then-layer = <SYS>;
         };
     };
 
@@ -351,7 +342,7 @@
             >;
         };
 
-        NAV-SYM {
+        NAV_SYM {
             bindings = <
 &dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)        &kp LC(T)                 &r_assign_pipe        &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
 &kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE                &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
@@ -360,7 +351,7 @@
             >;
         };
 
-        FN-NUM {
+        FN_NUM {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                 &plus_spaced_plus    &kp N7  &kp N8  &kp N9  &minus_spaced_minus
 &kp F6  &kp F7  &kp F8  &kp F9   &kp F10                &equal_spaced_equal  &kp N4  &kp N5  &kp N6  &asterisk_spaced_asterisk
@@ -369,7 +360,7 @@
             >;
         };
 
-        NAV-NAV {
+        NAV_NAV {
             bindings = <
 &win_6  &win_7  &win_8  &win_9  &win_0                &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
 &trans  &trans  &trans  &trans  &trans                &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
