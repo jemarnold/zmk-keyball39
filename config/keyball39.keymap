@@ -80,6 +80,127 @@
         };
         win_4: swapper_win_4 {
             compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N4>, <&kt LWIN>;
+        };
+        win_5: swapper_win_5 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N5>, <&kt LWIN>;
+        };
+        win_6: swapper_win_6 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N6>, <&kt LWIN>;
+        };
+        win_7: swapper_win_7 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N7>, <&kt LWIN>;
+        };
+        win_8: swapper_win_8 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N8>, <&kt LWIN>;
+        };
+        win_9: swapper_win_9 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N9>, <&kt LWIN>;
+        };
+        win_0: swapper_win_0 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N0>, <&kt LWIN>;
+        };
+        dt_esc_alt_f4: double_tap_esc_alt_f4 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp ESCAPE>, <&kp LA(F4)>;
+        };
+        shutdown_win: shutdown_windows {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <50>;
+            tap-ms = <50>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp LG(X)>, <&kp U>, <&kp U>;
+        };
+        restart_win: restart_windows {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <50>;
+            tap-ms = <50>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp LG(X)>, <&kp U>, <&kp R>;
+        };
+
+// spaced symbols, macros, & tap dances
+
+        spaced_equal: spaced_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
+        };
+        spaced_equality: spaced_equality {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp EQUAL &kp SPACE>;
+        };
+        spaced_unequal: spaced_unequal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;
+        };
+        dt_equal_ops: double_tap_equal_operators {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
+        };
+        gte: greater_than_equal_to {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GREATER_THAN &kp EQUAL>;
+        };
+        lte: less_than_equal_to {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
+        };
+        r_assign: r_assign {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>;
+        };
+        r_pipe: r_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PIPE &kp GREATER_THAN &kp SPACE>;
+        };
+        spaced_minus: spaced_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+        };
+        spaced_plus: spaced_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PLUS &kp SPACE>;
+        };
+        spaced_asterisk: spaced_asterisk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp ASTERISK &kp SPACE>;
+        };
+        spaced_slash: spaced_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp SLASH &kp SPACE>;
+        };
+    };
+
+// modified shift keys
+
     r_assign_pipe: r_assign_pipe {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
