@@ -325,8 +325,8 @@
         compatible = "zmk,conditional-layers";
 
         system {
-            if-layers = <NAV_SYM FN_NUM>;
-            then-layer = <SYS>;
+            if-layers = <1 2>;
+            then-layer = <4>;
         };
     };
 
