@@ -335,7 +335,7 @@
 
         system {
             if-layers = <BASE NAV_SYM>;
-            then-layer = <4>;
+            then-layer = <SYS>;
         };
     };
 
