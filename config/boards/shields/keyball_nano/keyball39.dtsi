@@ -1,9 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+&nice_view_spi { cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>; };
+
 / {
     chosen {
-        zephyr,display = &oled;
+        zephyr,display = &oled;  // SSD1306 fallback; nice!view shield overrides at build
 	zmk,physical-layout = &keyball_physical_layout;
     };
 
@@ -71,8 +73,6 @@
 	
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-
         diode-direction = "col2row";
 		row-gpios
 			= <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -81,8 +81,10 @@
 			, <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-};    
+};
 
+// SSD1306 OLED + i2c0 retained from upstream as fallback display.
+// Inert when building with nice_view_adapter+nice_view shields (chosen overridden).
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {

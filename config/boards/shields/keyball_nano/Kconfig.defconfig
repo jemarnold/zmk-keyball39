@@ -17,6 +17,7 @@ endif
 
 if ZMK_DISPLAY
 
+# SSD1306 fallback; inert when building with nice_view shield
 config I2C
     default y
 
