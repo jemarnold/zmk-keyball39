@@ -398,7 +398,7 @@
 &trans  &trans  &trans  &trans  &trans                        &none     &none      &mkp MCLK  &none  &none
 &trans  &trans  &trans  &trans  &trans                        &mkp MB4  &mkp LCLK  &mkp RCLK  &mo 6  &mo 7
 &trans  &trans  &trans  &trans  &trans                        &mkp MB5  &mkp MB5   &mkp MB4   &none  &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans                       &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans                                 &none
             >;
         };
 
