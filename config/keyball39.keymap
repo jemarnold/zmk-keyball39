@@ -334,7 +334,7 @@
         compatible = "zmk,conditional-layers";
 
         system {
-            if-layers = <BASE NAV_SYM>;
+            if-layers = <NAV_SYM FN_NUM>;
             then-layer = <SYS>;
         };
     };
@@ -396,7 +396,7 @@
             label = "MOUSE";
             bindings = <
 &none   &none   &none   &none   &none                 &none     &none      &mkp MCLK  &none  &none
-&none   &none   &none   &none   &none                 &mkp MB4  &mkp LCLK  &mkp RCLK  &none  &none
+&none   &none   &none   &none   &none                 &mkp MB4  &mkp LCLK  &mkp RCLK  &mo 6  &mo 7
 &none   &none   &none   &none   &none                 &mkp MB5  &none      &none      &none  &none
 &trans  &trans  &trans  &trans  &trans  &trans        &trans    &trans                       &none
             >;
