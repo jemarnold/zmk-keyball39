@@ -328,6 +328,17 @@
 
     combos {
         compatible = "zmk,combos";
+
+        combo_mclk {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&mkp MCLK>;
+        };
+        combo_scroll {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&mo SCROLL>;
+        };
     };
 
     conditional_layers {
@@ -348,7 +359,7 @@
 &kp Q        &kp W         &kp E                  &kp R         &kp T                              &kp Y         &kp U         &kp I                   &kp O        &kp P
 &htl LWIN A  &htl LALT S   &htl LC(LEFT_SHIFT) D  &htl LCTRL F  &kp G                              &kp H         &htr RCTRL J  &htr RC(RIGHT_SHIFT) K  &htr RALT L  &htr K_APPLICATION APOSTROPHE
 &kp Z        &kp X         &kp C                  &kp V         &kp B                              &kp N         &kp M         &comma_semicol          &dot_colon   &excl_qmark
-&kp LCTRL    &kp LEFT_WIN  &kp LALT               &trans        &kp LSHIFT  &lt 1 BACKSPACE        &slt 2 SPACE  &lt 3 ENTER                                        &kp K_APPLICATION
+&mkp LCLK    &mkp RCLK     &mo SNIPE              &trans        &kp LSHIFT  &lt 1 BACKSPACE        &slt 2 SPACE  &lt 3 ENTER                                        &kp K_APPLICATION
             >;
         };
 
@@ -392,6 +403,8 @@
             >;
         };
 
+        // MOUSE layer unreachable — retained as legacy reference only.
+        // Auto-mouse disabled in keyball39_right.overlay; clicks live on BASE.
         MOUSE {
             label = "MOUSE";
             bindings = <
