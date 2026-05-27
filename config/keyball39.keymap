@@ -359,7 +359,7 @@
 &kp Q        &kp W         &kp E                  &kp R         &kp T                              &kp Y         &kp U         &kp I                   &kp O        &kp P
 &htl LWIN A  &htl LALT S   &htl LC(LEFT_SHIFT) D  &htl LCTRL F  &kp G                              &kp H         &htr RCTRL J  &htr RC(RIGHT_SHIFT) K  &htr RALT L  &htr K_APPLICATION APOSTROPHE
 &kp Z        &kp X         &kp C                  &kp V         &kp B                              &kp N         &kp M         &comma_semicol          &dot_colon   &excl_qmark
-&mkp LCLK    &mkp RCLK     &mo SNIPE              &trans        &kp LSHIFT  &lt 1 BACKSPACE        &slt 2 SPACE  &lt 3 ENTER                                        &kp K_APPLICATION
+&mkp LCLK    &mkp RCLK     &mo SNIPE              &trans        &kp LSHIFT  &lt 1 BACKSPACE        &slt 2 SPACE  &lt 3 ENTER                                        &mo MOUSE
             >;
         };
 
@@ -408,10 +408,10 @@
         MOUSE {
             label = "MOUSE";
             bindings = <
-&trans  &trans  &trans  &trans  &trans                        &none     &none      &mkp MCLK  &none  &none
-&trans  &trans  &trans  &trans  &trans                        &mkp MB4  &mkp LCLK  &mkp RCLK  &mo 6  &mo 7
-&trans  &trans  &trans  &trans  &trans                        &mkp MB5  &mkp MB5   &mkp MB4   &none  &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans                                 &none
+&trans  &trans  &trans  &trans  &trans                        &none   &none      &mkp MCLK  &none  &none
+&trans  &trans  &trans  &trans  &trans                        &trans  &mkp LCLK  &mkp RCLK  &mo 6  &mo 7
+&trans  &trans  &trans  &trans  &trans                        &trans  &trans     &trans     &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans                               &none
             >;
         };
 

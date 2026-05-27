@@ -66,13 +66,20 @@
 };
 
 / {
+  tl_mouse: tl_mouse {
+    compatible = "zmk,input-processor-temp-layer";
+    #input-processor-cells = <2>;
+    require-prior-idle-ms = <150>;
+  };
+
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
+    input-processors = <&tl_mouse 5 250>;
 
     snipe {
       layers = <7>;
-      input-processors = <&zip_xy_scaler 1 3>;
+      input-processors = <&zip_xy_scaler 1 3 &tl_mouse 5 250>;
     };
 
     scroller {
