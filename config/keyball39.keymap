@@ -139,7 +139,8 @@
         spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp EQUAL &kp SPACE>;
         };
         spaced_equality: spaced_equality {
             compatible = "zmk,behavior-macro";
@@ -180,7 +181,8 @@
         spaced_minus: spaced_minus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp MINUS &kp SPACE>;
         };
         spaced_plus: spaced_plus {
             compatible = "zmk,behavior-macro";
@@ -195,7 +197,8 @@
         spaced_slash: spaced_slash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp SLASH &kp SPACE>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp SLASH &kp SPACE>;
         };
     };
 
@@ -403,8 +406,6 @@
             >;
         };
 
-        // MOUSE layer unreachable — retained as legacy reference only.
-        // Auto-mouse disabled in keyball39_right.overlay; clicks live on BASE.
         MOUSE {
             label = "MOUSE";
             bindings = <
