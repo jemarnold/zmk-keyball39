@@ -158,6 +158,12 @@
             tapping-term-ms = <200>;
             bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
         };
+        dt_minus: double_tap_minus_emdash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&minus_spaced_minus>, <&emdash_spaced_emdash>;
+        };
         gte: greater_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -183,6 +189,25 @@
             #binding-cells = <0>;
             bindings = <&macro_release &kp LSHIFT &kp RSHIFT
                         &macro_tap &kp SPACE &kp MINUS &kp SPACE>;
+        };
+        // em-dash via Windows Alt+0151 (NumLock must be ON)
+        emdash: emdash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_press &kp LALT
+                        &macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1
+                        &macro_release &kp LALT>;
+        };
+        spaced_emdash: spaced_emdash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE
+                        &macro_press &kp LALT
+                        &macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1
+                        &macro_release &kp LALT
+                        &macro_tap &kp SPACE>;
         };
         spaced_plus: spaced_plus {
             compatible = "zmk,behavior-macro";
@@ -309,6 +334,12 @@
         bindings = <&kp MINUS>, <&spaced_minus>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    emdash_spaced_emdash: emdash_spaced_emdash {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&emdash>, <&spaced_emdash>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
     asterisk_spaced_asterisk: asterisk_spaced_asterisk {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
@@ -379,7 +410,7 @@
         FN_NUM {
             label = "FN_NUM";
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                 &plus_spaced_plus    &kp N7  &kp N8  &kp N9  &minus_spaced_minus
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                 &plus_spaced_plus    &kp N7  &kp N8  &kp N9  &dt_minus
 &kp F6  &kp F7  &kp F8  &kp F9   &kp F10                &equal_spaced_equal  &kp N4  &kp N5  &kp N6  &asterisk_spaced_asterisk
 &trans  &trans  &trans  &kp F11  &kp F12                &kp DOT              &kp N1  &kp N2  &kp N3  &slash_spaced_slash
 &trans  &trans  &trans  &trans   &trans   &trans        &trans               &kp N0                  &trans
