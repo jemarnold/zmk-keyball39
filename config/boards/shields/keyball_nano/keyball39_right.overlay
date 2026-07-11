@@ -69,17 +69,17 @@
   tl_mouse: tl_mouse {
     compatible = "zmk,input-processor-temp-layer";
     #input-processor-cells = <2>;
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <100>;  // min idle time before re-triggering layer, avoids retrigger during active use
   };
 
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-    input-processors = <&tl_mouse 5 300>;
+    input-processors = <&tl_mouse 5 220>;  // layer 5, ms held active after last movement
 
     snipe {
       layers = <7>;
-      input-processors = <&zip_xy_scaler 1 3 &tl_mouse 5 300>;
+      input-processors = <&zip_xy_scaler 1 3 &tl_mouse 5 220>;  // ms held active after last movement; should be consistent with `trackball_listener`
     };
 
     scroller {
