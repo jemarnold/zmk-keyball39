@@ -9,13 +9,15 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # pinned so split/BLE behaviour cannot change between flashes; includes
+      # the BT_ATT_TX_COUNT split GATT discovery fix (zmkfirmware/zmk#3216)
+      revision: 6e2ef41e022d555b10f116e395832913f71717b3
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: zmk-0.4
     - name: zmk-tri-state
       remote: urob
-      revision: main
+      revision: 269b13eb3f5491292b627ac3892589af32de3e17
   self:
     path: config
