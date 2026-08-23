@@ -69,7 +69,7 @@
   tl_mouse: tl_mouse {
     compatible = "zmk,input-processor-temp-layer";
     #input-processor-cells = <2>;
-    require-prior-idle-ms = <100>;  // min idle time before re-triggering layer, avoids retrigger during active use
+    require-prior-idle-ms = <400>;  // min idle time before re-triggering layer, avoids retrigger during active use
   };
 
   trackball_listener {
