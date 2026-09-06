@@ -70,17 +70,17 @@
     compatible = "zmk,input-processor-temp-layer";
     #input-processor-cells = <2>;
     require-prior-idle-ms = <400>;  // min idle time before re-triggering layer, avoids retrigger during active use
-    excluded-positions = <7 16 17 18 19 33 34 35 36 37>;  // mouse keys + thumbs; any other keypress deactivates layer immediately
+    excluded-positions = <16 17 18 19 27 33 34 35 36 37>;  // mouse keys + thumbs; any other keypress deactivates layer immediately
   };
 
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-    input-processors = <&tl_mouse 5 100>;  // layer 5, ms held active after last movement
+    input-processors = <&tl_mouse 5 200>;  // layer 5, ms held active after last movement
 
     snipe {
       layers = <7>;
-      input-processors = <&zip_xy_scaler 1 3 &tl_mouse 5 100>;  // ms held active after last movement; should be consistent with `trackball_listener`
+      input-processors = <&zip_xy_scaler 1 3 &tl_mouse 5 200>;  // ms held active after last movement; should be consistent with `trackball_listener`
     };
 
     scroller {
