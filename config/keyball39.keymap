@@ -93,6 +93,40 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
+        htr_mo: right_hand_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+        /* right hand hold-taps with mod-morph tap (second param unused) */
+        htr_dot: right_hand_hold_tap_dot_colon {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&dot_colon>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+        htr_excl: right_hand_hold_tap_excl_qmark {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&excl_qmark>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
 
     /* ------------------------------------------------------------ *
      *  Tap-dances
@@ -334,10 +368,10 @@
         BASE {
             label = "BASE";
             bindings = <
-&kp Q        &kp W        &kp E             &kp R         &kp T                   &kp Y              &kp U         &kp I             &kp O        &kp P
-&htl LWIN A  &htl LALT S  &htl LC(LSHFT) D  &htl LCTRL F  &kp G                   &kp H              &htr RCTRL J  &htr RC(RSHFT) K  &htr RALT L  &htr K_APP APOS
-&kp Z        &kp X        &kp C             &kp V         &kp B                   &kp N              &kp M         &comma_semicol    &dot_colon   &excl_qmark
-&trans  &trans  &trans  &trans              &kp LSHIFT    &lt NAV_SYM BSPC        &slt FN_NUM SPACE  &lt NAV_NAV ENTER                            &trans
+&kp Q        &kp W        &kp E             &kp R         &kp T                   &kp Y              &kp U         &kp I             &kp O             &kp P
+&htl LWIN A  &htl LALT S  &htl LC(LSHFT) D  &htl LCTRL F  &kp G                   &kp H              &htr RCTRL J  &htr RC(RSHFT) K  &htr_mo SCROLL L  &htr_mo SNIPE APOS
+&kp Z        &kp X        &kp C             &kp V         &kp B                   &kp N              &kp M         &comma_semicol    &htr_dot RALT 0   &htr_excl K_APP 0
+&trans  &trans  &trans  &trans              &kp LSHIFT    &lt NAV_SYM BSPC        &slt FN_NUM SPACE  &lt NAV_NAV ENTER                                 &trans
             >;
         };
 
