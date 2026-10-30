@@ -169,7 +169,8 @@
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <3>;
+            ignored-key-positions = <3 16 17 18 19 27>;  /* LS(TAB) + mouse clicks */
+            ignored-layers = <MOUSE>;                    /* trackball movement */
         };
         WINSWAP(win_1, N1)
         WINSWAP(win_2, N2)
