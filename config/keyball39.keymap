@@ -155,11 +155,11 @@
             tapping-term-ms = <200>;
             bindings = <&spaced_in>, <&spaced_null_or>;
         };
-        dt_minus: double_tap_minus_emdash {
+        dt_minus: tap_dance_minus_endash_emdash {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&minus_spaced_minus>, <&emdash_spaced_emdash>;
+            bindings = <&minus_spaced_minus>, <&endash_spaced_endash>, <&emdash_spaced_emdash>;
         };
 
     /* ------------------------------------------------------------ *
@@ -297,6 +297,26 @@
                         &macro_tap &kp SPACE &kp SLASH &kp SPACE>;
         };
 
+        /* En-dash via Windows Alt+0150 (NumLock must be ON) */
+        endash: endash {                          /* "–" */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_press &kp LALT
+                        &macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0
+                        &macro_release &kp LALT>;
+        };
+        spaced_endash: spaced_endash {            /* " – " */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE
+                        &macro_press &kp LALT
+                        &macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0
+                        &macro_release &kp LALT
+                        &macro_tap &kp SPACE>;
+        };
+
         /* Em-dash via Windows Alt+0151 (NumLock must be ON) */
         emdash: emdash {                          /* "—" */
             compatible = "zmk,behavior-macro";
@@ -342,6 +362,7 @@
     /* FN_NUM spaced-symbol morphs (tap = symbol, shift = spaced version) */
     MORPH(plus_spaced_plus,         &kp PLUS,     &spaced_plus)
     MORPH(minus_spaced_minus,       &kp MINUS,    &spaced_minus)
+    MORPH(endash_spaced_endash,     &endash,      &spaced_endash)
     MORPH(emdash_spaced_emdash,     &emdash,      &spaced_emdash)
     MORPH(asterisk_spaced_asterisk, &kp ASTERISK, &spaced_asterisk)
     MORPH(slash_spaced_slash,       &kp SLASH,    &spaced_slash)
